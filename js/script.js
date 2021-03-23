@@ -6,10 +6,11 @@ const colorShirt = document.getElementById('color');
 const colorOption = document.getElementById('color').children;
 const activities = document.getElementById('activities');
 const total = document.getElementById('activities-cost')
-const card = document.getElementById('credit-card');
-const bitcoin = document.getElementById('bitcoin');
-const payPal = document.getElementById('paypal');
-const paymentMethod = document.getElementById('payment').children;
+const creditCard = document.querySelector('.credit-card');
+const payPal = document.querySelector('.paypal');
+const bitCoin = document.querySelector('.bitcoin');
+const paymentMethod = document.getElementById('payment');
+const form = document.querySelector('form');
 // Focuses on name upon refresh
 formName.focus()
 
@@ -61,10 +62,32 @@ activities.addEventListener('change', (e) =>{
   total.innerHTML = `$ ${totalCost}`
 })
 
-paymentMethod.addEventListener('click' ,(e) =>{
-    const selectedPay = e.target.getAttribute('value');
-    if(selectedPay === 'bitcoin'){
+
+paymentMethod.addEventListener('change' ,(e) =>{
+    const selectedPay = e.target.value;
+    if(selectedPay ==='bitcoin'){
+        bitCoin.hidden =false;
         payPal.hidden =true;
-        card.hidden = true
+        creditCard.hidden = true;
     }
+    else if(selectedPay==='paypal'){
+        payPal.hidden =false;
+       bitCoin.hidden =true;
+        creditCard.hidden = true;
+    }
+    else if(selectedPay==='credit-card'){
+        creditCard.hidden = false;
+        bitCoin.hidden =true;
+         payPal.hidden = true;
+     }
+
 })
+
+// Form Validation
+form.addEventListener('submit',(e) =>{
+  const nameValue = nameForm.getElementsByTagName("INPUT")[0].value;
+   const nameIsValid = /^.+$/.test(nameValue);    
+ return nameIsValid;
+      
+})
+
