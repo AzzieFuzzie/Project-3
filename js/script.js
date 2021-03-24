@@ -104,10 +104,10 @@ form.addEventListener("submit", (e) => {
 
   activities.addEventListener('focus',(e)=>{
     activitiesInputs = e.target;
-    activitiesInputs.classList.add('focus')
+    activitiesInputs.parentElement.classList.add('focus')
   });
   activities.addEventListener('focus',(e)=>{
     activitiesInputs = e.target;
-    activitiesInputs.classList.add('blur')
+    activitiesInputs.parentElement.classList.add('blur')
   });
  
