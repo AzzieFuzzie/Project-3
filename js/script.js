@@ -101,13 +101,17 @@ form.addEventListener("submit", (e) => {
 
 // Accessability
 
-
-  activities.addEventListener('focus',(e)=>{
-    activitiesInputs = e.target;
-    activitiesInputs.parentElement.classList.add('focus')
-  });
-  activities.addEventListener('focus',(e)=>{
-    activitiesInputs = e.target;
-    activitiesInputs.parentElement.classList.add('blur')
-  });
+  for(let i =0 ; i< activitiesInputs.length ; i++ ){
  
+  activitiesInputs.addEventListener('focus',(e)=>{
+  let parent = activitiesInputs[i].parentNode;
+  parent.activitiesInputs[i].classList.add('focus');
+  });
+
+  activitiesInputs.addEventListener('blur',(e)=>{
+    activitiesInputs[i] =activitiesInputs[i].parentNode ;
+    activitiesInputs[i].parentNode.classList.add('focus')
+ 
+  });
+}
+
