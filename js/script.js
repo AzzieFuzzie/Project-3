@@ -11,6 +11,7 @@ const payPal = document.querySelector('.paypal');
 const bitCoin = document.querySelector('.bitcoin');
 const paymentMethod = document.getElementById('payment');
 const form = document.querySelector('form');
+let activitiesInputs = document.querySelectorAll("input[type=checkbox]");
 // Focuses on name upon refresh
 formName.focus()
 
@@ -97,3 +98,16 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
 })
+
+// Accessability
+
+
+  activities.addEventListener('focus',(e)=>{
+    activitiesInputs = e.target;
+    activitiesInputs.classList.add('focus')
+  });
+  activities.addEventListener('focus',(e)=>{
+    activitiesInputs = e.target;
+    activitiesInputs.classList.add('blur')
+  });
+ 
