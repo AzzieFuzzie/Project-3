@@ -84,10 +84,16 @@ paymentMethod.addEventListener('change' ,(e) =>{
 })
 
 // Form Validation
-form.addEventListener('submit',(e) =>{
-  const nameValue = nameForm.getElementsByTagName("INPUT")[0].value;
-   const nameIsValid = /^.+$/.test(nameValue);    
- return nameIsValid;
+// form.addEventListener('submit',(e) =>{
+//   const nameValue = nameForm.getElementsByTagName("INPUT")[0].value;
+//    const nameIsValid = /^.+$/.test(nameValue);    
+//  return nameIsValid;
       
-})
+// })
+form.addEventListener("submit", (e) => {
+    // name field validation
+    formName = e.target.value;
+    return /[a-z]/.test(formName);
+    e.preventDefault();
 
+})
