@@ -11,7 +11,7 @@ const payPal = document.querySelector('.paypal');
 const bitCoin = document.querySelector('.bitcoin');
 const paymentMethod = document.getElementById('payment');
 const form = document.querySelector('form');
-let activitiesInputs = document.querySelectorAll("input[type=checkbox]");
+let activityInputs = document.querySelectorAll("input[type=checkbox]");
 // Focuses on name upon refresh
 formName.focus()
 
@@ -101,17 +101,27 @@ form.addEventListener("submit", (e) => {
 
 // Accessability
 
-  for(let i =0 ; i< activitiesInputs.length ; i++ ){
- 
-  activitiesInputs.addEventListener('focus',(e)=>{
-  let parent = activitiesInputs[i].parentNode;
-  parent.activitiesInputs[i].classList.add('focus');
-  });
+for (i = 0; i < activityInputs.length; i++) {
+  activityInputs[i].addEventListener('focus', (event) => {
+      event.target.parentNode.className = "focus";
+  })
 
-  activitiesInputs.addEventListener('blur',(e)=>{
-    activitiesInputs[i] =activitiesInputs[i].parentNode ;
-    activitiesInputs[i].parentNode.classList.add('focus')
- 
-  });
+  activityInputs[i].addEventListener('blur', (event) => {
+      event.target.parentNode.className = "blur";
+  })
 }
+
+
+function inputIsEmpty(){
+    const invalidName = /^\s*$/.test(nameInput.value);
+
+    if (invalidName == true) {
+        alert(nameInput)
+    } else {
+        validNow(nameInput)
+    }
+
+    return invalidName;
+}
+
 
