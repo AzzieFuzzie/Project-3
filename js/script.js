@@ -117,7 +117,7 @@ form.addEventListener('submit',(e) =>{
   const nameValue = nameValid.value;
   return /[a-z]/.test(nameValue);
   if(nameValue === true)
-  console.log(corect)
+  console.log(correct)
   else{
     console.log(Incorrrect)
   }
