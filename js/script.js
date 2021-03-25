@@ -92,13 +92,13 @@ paymentMethod.addEventListener('change' ,(e) =>{
 //  return nameIsValid;
       
 // })
-form.addEventListener("submit", (e) => {
-    // name field validation
-    formName = e.target.value;
-    return /[a-z]/.test(formName);
-    e.preventDefault();
+// form.addEventListener("submit", (e) => {
+//     // name field validation
+//     formName = e.target.value;
+//     return /[a-z]/.test(formName);
+//     e.preventDefault();
 
-})
+// })
 
 // Accessability
 
@@ -114,13 +114,17 @@ for (i = 0; i < activityInputs.length; i++) {
 }
 
 form.addEventListener('submit',(e) =>{
-  const nameValue = nameValid.value;
-  return /[a-z]/.test(nameValue);
-  if(nameValue === true)
-  console.log(correct)
+  e.preventDefault()
+   e.target.nameValid;
+   const nameTest = nameValid.value;
+  const nameFinal = /[a-z]/.test(nameTest);
+  if(nameTest)
+  console.log('correct')
   else{
-    console.log(Incorrrect)
+    console.log('Incorrrect')
+    
   }
+ 
 })
 
 
