@@ -12,6 +12,7 @@ const bitCoin = document.querySelector('.bitcoin');
 const paymentMethod = document.getElementById('payment');
 const form = document.querySelector('form');
 let activityInputs = document.querySelectorAll("input[type=checkbox]");
+const nameValid = document.querySelector('input[type=text]')
 // Focuses on name upon refresh
 formName.focus()
 
@@ -104,6 +105,7 @@ form.addEventListener("submit", (e) => {
 for (i = 0; i < activityInputs.length; i++) {
   activityInputs[i].addEventListener('focus', (event) => {
       event.target.parentNode.className = "focus";
+    
   })
 
   activityInputs[i].addEventListener('blur', (event) => {
@@ -111,17 +113,14 @@ for (i = 0; i < activityInputs.length; i++) {
   })
 }
 
-
-function inputIsEmpty(){
-    const invalidName = /^\s*$/.test(formName.value);
-
-    if (invalidName == true) {
-        alert(nameInput)
-    } else {
-        validNow(nameInput)
-    }
-
-    return invalidName;
-}
+form.addEventListener('submit',(e) =>{
+  const nameValue = nameValid.value;
+  return /[a-z]/.test(nameValue);
+  if(nameValue === true)
+  console.log(corect)
+  else{
+    console.log(Incorrrect)
+  }
+})
 
 
