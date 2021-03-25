@@ -113,7 +113,7 @@ for (i = 0; i < activityInputs.length; i++) {
 
 
 function inputIsEmpty(){
-    const invalidName = /^\s*$/.test(nameInput.value);
+    const invalidName = /^\s*$/.test(formName.value);
 
     if (invalidName == true) {
         alert(nameInput)
