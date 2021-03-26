@@ -123,6 +123,8 @@ function incorrect(){
   }
 }
 
+// Adds the class valid(green tick) if fields do no match validators.
+
 function correct(){
   for(let i=0; i<label.length ; i++){
     label[i].classList.remove('not-valid');
