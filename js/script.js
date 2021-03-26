@@ -116,21 +116,18 @@ for (i = 0; i < activityInputs.length; i++) {
 // Adds the class invalid(red outline,warning sign) if fields do no match validators.
 
 function incorrect(){
-  for(let i=0; i<label.length ; i++){
-  label[i].classList.add('not-valid');
-  label[i].classList.remove('valid');
+  nameValid.parentNode.classList.add('not-valid');
+  nameValid.parentNode.classList.remove('valid');
 
-  }
 }
 
 // Adds the class valid(green tick) if fields do no match validators.
-
 function correct(){
-  for(let i=0; i<label.length ; i++){
-    label[i].classList.remove('not-valid');
-    label[i].classList.add('valid');
-  }
+  nameValid.parentNode.classList.add('valid');
+    nameValid.parentNode.classList.remove('not-valid');
+   
 }
+
 
 form.addEventListener('submit',(e) =>{
 
@@ -142,9 +139,9 @@ form.addEventListener('submit',(e) =>{
    const nameTest = nameValid.value;
     const nameFinal = /[a-z]/i.test(nameTest);
   if(nameFinal)
-   correct()
+  correct()
   else {
-   incorrect();
+    incorrect()
   }
 
   
