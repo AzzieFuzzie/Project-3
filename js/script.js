@@ -11,8 +11,14 @@ const payPal = document.querySelector('.paypal');
 const bitCoin = document.querySelector('.bitcoin');
 const paymentMethod = document.getElementById('payment');
 const form = document.querySelector('form');
-let activityInputs = document.querySelectorAll("input[type=checkbox]");
-const nameValid = document.querySelector('input[type=text]')
+const activityInputs = document.querySelectorAll("input[type=checkbox]");
+const nameValid = document.querySelector('input[type=text]');
+const emailValid = document.querySelector('input[type=email]');
+const cardValid = document.getElementById('cc-num');
+const zipValid = document.getElementById('zip-hint');
+const cvvValid = document.getElementById('cvv');
+const label = document.querySelectorAll('label')
+
 // Focuses on name upon refresh
 formName.focus()
 
@@ -23,7 +29,7 @@ otherJobRole.style.display = 'none';
 jobs.addEventListener('click', (e) => {
   
 if(e.target.value === 'other'){
-otherJobRole.style.display = 'block';
+    otherJobRole.style.display = 'block';
 }
 else{
     otherJobRole.style.display = 'none';
@@ -33,20 +39,22 @@ else{
 colorShirt.disabled = true;
 
 
-// designShirt.addEventListener('click' , (e) =>{
+designShirt.addEventListener('click' , (e) =>{
 
-// if(e.target.value === 'js puns'){
-//     colorShirt.disabled = false;
+if(e.target.value === 'js puns'){
+    colorShirt.disabled = false;
 
 //  for(i = 0 ; i>colorShirt.children.length ; i++ ){
 //     const target 
     
 //  }
-// }
-// else if(e.target.value === 'heart js'){
-//     colorShirt.disabled = false;
-// }
-// });
+}
+else if(e.target.value === 'heart js'){
+    colorShirt.disabled = false;
+}
+});
+
+// Activities
 
 let totalCost = 0;
 
@@ -56,7 +64,7 @@ activities.addEventListener('change', (e) =>{
  
   if(e.target.checked){
      totalCost += activityNo;
-    console.log(totalCost)
+     console.log(totalCost)
   }
   else{
       totalCost -= activityNo;
@@ -64,6 +72,10 @@ activities.addEventListener('change', (e) =>{
   total.innerHTML = `$ ${totalCost}`
 })
 
+// Hide bitcoin and paypal by default when register button clicked
+
+bitCoin.hidden = true;
+payPal.hidden = true;
 
 paymentMethod.addEventListener('change' ,(e) =>{
     const selectedPay = e.target.value;
@@ -74,7 +86,7 @@ paymentMethod.addEventListener('change' ,(e) =>{
     }
     else if(selectedPay==='paypal'){
         payPal.hidden =false;
-       bitCoin.hidden =true;
+        bitCoin.hidden =true;
         creditCard.hidden = true;
     }
     else if(selectedPay==='credit-card'){
@@ -85,20 +97,6 @@ paymentMethod.addEventListener('change' ,(e) =>{
 
 })
 
-// Form Validation
-// form.addEventListener('submit',(e) =>{
-//   const nameValue = nameForm.getElementsByTagName("INPUT")[0].value;
-//    const nameIsValid = /^.+$/.test(nameValue);    
-//  return nameIsValid;
-      
-// })
-// form.addEventListener("submit", (e) => {
-//     // name field validation
-//     formName = e.target.value;
-//     return /[a-z]/.test(formName);
-//     e.preventDefault();
-
-// })
 
 // Accessability
 
@@ -113,18 +111,89 @@ for (i = 0; i < activityInputs.length; i++) {
   })
 }
 
+// Adds the class invalid(red outline,warning sign) if fields do no match validators.
+
+function incorrect(){
+  for(let i=0; i<label.length ; i++){
+  label[i].classList.add('not-valid');
+  label[i].classList.remove('valid');
+
+  }
+}
+
+function correct(){
+  for(let i=0; i<label.length ; i++){
+    label[i].classList.remove('not-valid');
+    label[i].classList.add('valid');
+  }
+}
+
 form.addEventListener('submit',(e) =>{
+
+  // Prevents default page refreshing
   e.preventDefault()
+
+  // Name Validator
    e.target.nameValid;
    const nameTest = nameValid.value;
-  const nameFinal = /[a-z]/.test(nameTest);
-  if(nameTest)
-  console.log('correct')
-  else{
-    console.log('Incorrrect')
-    
-  }
+    const nameFinal = /[a-z]/i.test(nameTest);
+  if(nameFinal)
+   correct()
+  else {
+   incorrect();
+    }
+
+  
+  // Email Validator
+e.target.emailValid;
+const emailTest = emailValid.value;
+const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
+if(emailFinal)
+  correct()
+else{
+incorrect();
+}
+
+// Card Validator
+e.target.cardValid;
+const cardTest = cardValid.value;
+const cardFinal =  /\d{13,16}/.test(cardTest);
+if(cardFinal)
+correct()
+else{
  
+  incorrect();
+}
+
+
+//Zip Validator
+e.target.zipValid;
+const zipTest = zipValid.value;
+const zipFinal =  /\d{5}/.test(zipTest);
+if(zipFinal)
+correct()
+else{
+  
+ incorrect();
+}
+
+
+// CVV Validator
+e.target.cvvValid;
+const cvvTest = cvvValid.value;
+const cvvFinal =  /\d{3}/.test(cvvTest);
+if(cvvFinal)
+correct()
+
+else{
+
+  incorrect();
+}
+
+
 })
+
+
+
 
 
