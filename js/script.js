@@ -72,10 +72,12 @@ activities.addEventListener('change', (e) =>{
   total.innerHTML = `$ ${totalCost}`
 })
 
-// Hide bitcoin and paypal by default when register button clicked
+// Hide bitcoin and paypal by default
 
 bitCoin.hidden = true;
 payPal.hidden = true;
+
+// Hides one payment method when one is selected
 
 paymentMethod.addEventListener('change' ,(e) =>{
     const selectedPay = e.target.value;
@@ -141,7 +143,7 @@ form.addEventListener('submit',(e) =>{
    correct()
   else {
    incorrect();
-    }
+  }
 
   
   // Email Validator
@@ -151,7 +153,7 @@ const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
 if(emailFinal)
   correct()
 else{
-incorrect();
+  incorrect();
 }
 
 // Card Validator
@@ -159,10 +161,9 @@ e.target.cardValid;
 const cardTest = cardValid.value;
 const cardFinal =  /\d{13,16}/.test(cardTest);
 if(cardFinal)
-correct()
+  correct()
 else{
- 
-  incorrect();
+ incorrect();
 }
 
 
@@ -173,8 +174,7 @@ const zipFinal =  /\d{5}/.test(zipTest);
 if(zipFinal)
 correct()
 else{
-  
- incorrect();
+  incorrect();
 }
 
 
@@ -183,13 +183,10 @@ e.target.cvvValid;
 const cvvTest = cvvValid.value;
 const cvvFinal =  /\d{3}/.test(cvvTest);
 if(cvvFinal)
-correct()
-
+  correct()
 else{
-
   incorrect();
 }
-
 
 })
 
