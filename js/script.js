@@ -113,20 +113,9 @@ for (i = 0; i < activityInputs.length; i++) {
   })
 }
 
-// Adds the class invalid(red outline,warning sign) if fields do no match validators.
 
-function incorrect(){
-  nameValid.parentNode.classList.add('not-valid');
-  nameValid.parentNode.classList.remove('valid');
 
-}
 
-// Adds the class valid(green tick) if fields do no match validators.
-function correct(){
-  nameValid.parentNode.classList.add('valid');
-    nameValid.parentNode.classList.remove('not-valid');
-   
-}
 
 
 form.addEventListener('submit',(e) =>{
@@ -139,9 +128,9 @@ form.addEventListener('submit',(e) =>{
    const nameTest = nameValid.value;
     const nameFinal = /[a-z]/i.test(nameTest);
   if(nameFinal)
-  correct()
+   nameValid.parentNode.classList.add('not-valid');
   else {
-    incorrect()
+    nameValid.parentNode.classList.remove('valid');
   }
 
   
@@ -149,43 +138,43 @@ form.addEventListener('submit',(e) =>{
 e.target.emailValid;
 const emailTest = emailValid.value;
 const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
-if(emailFinal)
-  correct()
-else{
-  incorrect();
-}
+// if(emailFinal)
+
+// else{
+  
+// }
 
 // Card Validator
 e.target.cardValid;
 const cardTest = cardValid.value;
 const cardFinal =  /\d{13,16}/.test(cardTest);
-if(cardFinal)
-  correct()
-else{
- incorrect();
-}
+// if(cardFinal)
+
+// else{
+
+// }
 
 
 //Zip Validator
 e.target.zipValid;
 const zipTest = zipValid.value;
 const zipFinal =  /\d{5}/.test(zipTest);
-if(zipFinal)
-correct()
-else{
-  incorrect();
-}
+// if(zipFinal)
+
+// else{
+  
+// }
 
 
 // CVV Validator
 e.target.cvvValid;
 const cvvTest = cvvValid.value;
 const cvvFinal =  /\d{3}/.test(cvvTest);
-if(cvvFinal)
-  correct()
-else{
-  incorrect();
-}
+// if(cvvFinal)
+
+// else{
+
+// }
 
 })
 
