@@ -106,11 +106,11 @@ for (i = 0; i < activityInputs.length; i++) {
   activityInputs[i].addEventListener('focus', (event) => {
       event.target.parentNode.className = "focus";
     
-  })
-
-  activityInputs[i].addEventListener('blur', (event) => {
+ activityInputs[i].addEventListener('blur', (event) => {
       event.target.parentNode.className = "blur";
   })
+})
+
 }
 
 
