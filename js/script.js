@@ -102,16 +102,16 @@ paymentMethod.addEventListener('change' ,(e) =>{
 
 // Accessability
 
-for (i = 0; i < activityInputs.length; i++) {
-  activityInputs[i].addEventListener('focus', (event) => {
-      event.target.parentNode.className = "focus";
+// for (i = 0; i < activityInputs.length; i++) {
+//   activityInputs[i].addEventListener('focus', (event) => {
+//       event.target.parentNode.className = "focus";
     
- activityInputs[i].addEventListener('blur', (event) => {
-      event.target.parentNode.className = "blur";
-  })
-})
+//  activityInputs[i].addEventListener('blur', (event) => {
+//       event.target.parentNode.className = "blur";
+//   })
+// })
 
-}
+// }
 
 
 
@@ -128,11 +128,11 @@ form.addEventListener('submit',(e) =>{
    const nameTest = nameValid.value;
     const nameFinal = /[a-z]/i.test(nameTest);
   if(nameFinal)
-   nameValid.parentNode.classList.add('not-valid');
+  nameValid.parentNode.classList.remove('valid');
   else {
-    nameValid.parentNode.classList.remove('valid');
+    nameValid.parentNode.classList.add('not-valid');
   }
-
+  
   
   // Email Validator
 e.target.emailValid;
