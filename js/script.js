@@ -17,7 +17,7 @@ const emailValid = document.querySelector('input[type=email]');
 const cardValid = document.getElementById('cc-num');
 const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
-const label = document.querySelectorAll('label')
+const label = document.querySelectorAll('label');
 
 // Focuses on name upon refresh
 formName.focus()
@@ -102,16 +102,16 @@ paymentMethod.addEventListener('change' ,(e) =>{
 
 // Accessability
 
-// for (i = 0; i < activityInputs.length; i++) {
-//   activityInputs[i].addEventListener('focus', (event) => {
-//       event.target.parentNode.className = "focus";
-    
-//  activityInputs[i].addEventListener('blur', (event) => {
-//       event.target.parentNode.className = "blur";
-//   })
-// })
+for (i = 0; i < activityInputs.length; i++) {
+  activityInputs[i].addEventListener('focus', (event) => {
+      event.target.parentNode.className = "focus";
+    })
+ activityInputs[i].addEventListener('blur', (event) => {
+      event.target.parentNode.className = "blur";
+ 
+})
 
-// }
+}
 
 
 
@@ -127,8 +127,9 @@ form.addEventListener('submit',(e) =>{
    e.target.nameValid;
    const nameTest = nameValid.value;
     const nameFinal = /[a-z]/i.test(nameTest);
-  if(nameFinal)
-  nameValid.parentNode.classList.remove('valid');
+  if(nameFinal){
+  nameValid.parentNode.classList.add('valid');
+  }
   else {
     nameValid.parentNode.classList.add('not-valid');
   }
@@ -138,44 +139,57 @@ form.addEventListener('submit',(e) =>{
 e.target.emailValid;
 const emailTest = emailValid.value;
 const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
-// if(emailFinal)
+if(emailFinal){
+emailValid.parentNode.classList.add('valid');
+}
+else {
+  emailValid.parentNode.classList.add('not-valid');
+}
 
-// else{
-  
-// }
+// activities Validator
+e.target.activities;
+for(let i =0 ; activities < length; i++){
+const activityS = activities[i].getAttribute('data-cost');
+if(activityS < 100){
+   parentNode.classList.add('valid');
+    }
+    else {
+      activities.parentNode.classList.add('not-valid');
+    }
+}
 
 // Card Validator
 e.target.cardValid;
 const cardTest = cardValid.value;
 const cardFinal =  /\d{13,16}/.test(cardTest);
-// if(cardFinal)
-
-// else{
-
-// }
-
+if(cardFinal){
+cardValid.parentNode.classList.add('valid');
+}
+else {
+  cardValid.parentNode.classList.add('not-valid');
+}
 
 //Zip Validator
 e.target.zipValid;
 const zipTest = zipValid.value;
 const zipFinal =  /\d{5}/.test(zipTest);
-// if(zipFinal)
-
-// else{
-  
-// }
-
+if(zipFinal){
+zipValid.parentNode.classList.add('valid');
+}
+else {
+  zipValid.parentNode.classList.add('not-valid');
+}
 
 // CVV Validator
 e.target.cvvValid;
 const cvvTest = cvvValid.value;
 const cvvFinal =  /\d{3}/.test(cvvTest);
-// if(cvvFinal)
-
-// else{
-
-// }
-
+if(cvvFinal){
+cvvValid.parentNode.classList.add('valid');
+}
+else {
+  cvvValid.parentNode.classList.add('not-valid');
+}
 })
 
 
