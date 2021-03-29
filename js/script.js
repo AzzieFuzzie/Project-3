@@ -18,6 +18,7 @@ const cardValid = document.getElementById('cc-num');
 const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
 const label = document.querySelectorAll('label');
+const cost = document.querySelectorAll('input[data-cost]')
 
 // Focuses on name upon refresh
 formName.focus()
@@ -136,7 +137,7 @@ form.addEventListener('submit',(e) =>{
   
   
   // Email Validator
-e.target.emailValid;
+e.target.email;
 const emailTest = emailValid.value;
 const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
 if(emailFinal){
@@ -144,17 +145,20 @@ emailValid.parentNode.classList.add('valid');
 }
 else {
   emailValid.parentNode.classList.add('not-valid');
+  
 }
 
 // activities Validator
-e.target.activities;
-for(let i =0 ; activities < length; i++){
-const activityS = activities[i].getAttribute('data-cost');
+e.target.cost;
+for(let i =0 ; cost < length; i++){
+const activityS = cost[i].getAttribute('data-cost');
 if(activityS < 100){
-   parentNode.classList.add('valid');
+   cost.parentNode.classList.add('valid');
+   console.log('correct')
     }
     else {
-      activities.parentNode.classList.add('not-valid');
+      cost.parentNode.classList.add('not-valid');
+      console.log('incorrect')
     }
 }
 
