@@ -152,7 +152,7 @@ else {
 e.target.cost;
 for(let i =0 ; cost < length; i++){
 const activityS = cost[i].getAttribute('data-cost');
-if(activityS < 100){
+if(activityS >= 100){
    cost.parentNode.classList.add('valid');
    console.log('correct')
     }
