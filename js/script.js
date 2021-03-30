@@ -137,7 +137,8 @@ form.addEventListener('submit',(e) =>{
   
   
   // Email Validator
-e.target.email;
+  
+e.target.emailValid
 const emailTest = emailValid.value;
 const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
 if(emailFinal){
@@ -147,10 +148,10 @@ else {
   emailValid.parentNode.classList.add('not-valid');
   
 }
-
+  
 
 // activities Validator
-e.target.cost;
+e.target.activities;
 for(let i =0 ; cost < length; i++){
 const activityS = cost[i].getAttribute('data-cost');
 if(activityS >= 100){
