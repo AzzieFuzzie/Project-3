@@ -148,6 +148,7 @@ else {
   
 }
 
+
 // activities Validator
 e.target.cost;
 for(let i =0 ; cost < length; i++){
