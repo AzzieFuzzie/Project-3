@@ -19,7 +19,7 @@ const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
 const label = document.querySelectorAll('label');
 const cost = document.querySelectorAll('input[data-cost]')
-
+const input = document.querySelectorAll('input')
 // Focuses on name upon refresh
 formName.focus()
 
@@ -151,18 +151,18 @@ else {
   
 
 // activities Validator
+form.addEventListener('change' ,(e) =>{
 e.target.activities;
-for(let i =0 ; cost < length; i++){
-const activityS = cost[i].getAttribute('data-cost');
-if(activityS >= 100){
+const activityS = e.target.getAttribute('data-cost');
+if(activityS < 1){
    cost.parentNode.classList.add('valid');
-   console.log('correct')
+  
     }
     else {
       cost.parentNode.classList.add('not-valid');
-      console.log('incorrect')
+      
     }
-}
+  })
 
 // Card Validator
 e.target.cardValid;
