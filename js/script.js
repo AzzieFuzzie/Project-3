@@ -2,8 +2,7 @@ const formName = document.getElementById('name');
 const otherJobRole = document.getElementById('other-job-role');
 const jobs = document.getElementById('title');
 const designShirt = document.getElementById('design');
-const colorShirt = document.getElementById('color');
-const colorOption = document.getElementById('color').children;
+const colorOption = document.getElementById('color');
 const activities = document.getElementById('activities');
 const total = document.getElementById('activities-cost')
 const creditCard = document.querySelector('.credit-card');
@@ -18,9 +17,9 @@ const cardValid = document.getElementById('cc-num');
 const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
 const label = document.querySelectorAll('label');
-const cost = document.querySelectorAll('input[data-cost]');
-
+const cost = document.querySelector('input[data-cost]');
 const input = document.querySelectorAll('input')
+
 // Focuses on name upon refresh
 formName.focus()
 
@@ -37,24 +36,26 @@ else{
     otherJobRole.style.display = 'none';
 }
 });
-// disables shirt colors
-colorShirt.disabled = true;
+
+// disables shirt colors based on selection
+colorOption.disabled = true;
 
 
-designShirt.addEventListener('click' , (e) =>{
+designShirt.addEventListener('change' , (e) =>{
 
-if(e.target.value === 'js puns'){
-    colorShirt.disabled = false;
+colorOption.disabled =false;
 
-//  for(i = 0 ; i>colorShirt.children.length ; i++ ){
-//     const target 
-    
-//  }
+for (let i = 0; i < colorOption.children.length; i++) {
+  
+  
+ console.log(colorPicked)
+  if(colorPicked === 'js puns'){
+       colorOption[i].style
+
+  }else{}
 }
-else if(e.target.value === 'heart js'){
-    colorShirt.disabled = false;
-}
-});
+})
+
 
 // Activities
 
@@ -115,11 +116,6 @@ for (i = 0; i < activityInputs.length; i++) {
 
 }
 
-
-
-
-
-
 form.addEventListener('submit',(e) =>{
 
   // Prevents default page refreshing
@@ -152,20 +148,17 @@ else {
   
 
 // activities Validator
+ 
 
-
-for (let i = 0; i < cost.length ;i++) {
-
-  const activityS = e.target.getAttribute('data-cost');
-if(activityS < 1){
-   cost[i].parentElement.classList.add('not-valid');
-  
-    }
+let totalCost = e.target.getAttribute('data-cost');
+if(totalCost > 1 ){
+   cost.parentElement.classList.add('not-valid');
+  }
     else {
-      cost[i].parentElement.classList.add('valid');
+      cost.parentElement.classList.add('valid');
       
     }
-  }
+  
 
 // Card Validator
 e.target.cardValid;
