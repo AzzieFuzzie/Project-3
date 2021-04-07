@@ -150,8 +150,8 @@ else {
 // activities Validator
  
 
-let totalCost = e.target.getAttribute('data-cost');
-if(totalCost > 1 ){
+
+if(totalCost === 0 ){
    cost.parentElement.classList.add('not-valid');
   }
     else {
