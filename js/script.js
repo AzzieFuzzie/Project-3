@@ -18,7 +18,8 @@ const cardValid = document.getElementById('cc-num');
 const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
 const label = document.querySelectorAll('label');
-const cost = document.querySelectorAll('input[data-cost]')
+const cost = document.querySelectorAll('input[data-cost]');
+
 const input = document.querySelectorAll('input')
 // Focuses on name upon refresh
 formName.focus()
@@ -127,7 +128,7 @@ form.addEventListener('submit',(e) =>{
   // Name Validator
    e.target.nameValid;
    const nameTest = nameValid.value;
-    const nameFinal = /[a-z]/i.test(nameTest);
+   const nameFinal = /[a-z]/i.test(nameTest);
   if(nameFinal){
   nameValid.parentNode.classList.add('valid');
   }
@@ -151,18 +152,20 @@ else {
   
 
 // activities Validator
-form.addEventListener('change' ,(e) =>{
-e.target.activities;
-const activityS = e.target.getAttribute('data-cost');
+
+e.target.activities
+for (let i = 0; i < cost.length ;i++) {
+
+  const activityS = e.target.getAttribute('data-cost');
 if(activityS < 1){
-   cost.parentNode.classList.add('valid');
+   cost[i].parentElement.classList.add('not-valid');
   
     }
     else {
-      cost.parentNode.classList.add('not-valid');
+      cost[i].parentElement.classList.add('valid');
       
     }
-  })
+  }
 
 // Card Validator
 e.target.cardValid;
