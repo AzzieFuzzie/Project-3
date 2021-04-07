@@ -153,7 +153,7 @@ else {
 
 // activities Validator
 
-e.target.activities
+
 for (let i = 0; i < cost.length ;i++) {
 
   const activityS = e.target.getAttribute('data-cost');
