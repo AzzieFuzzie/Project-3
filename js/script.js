@@ -1,3 +1,5 @@
+// All Selected Dom elements referenced in variables in chronological order
+
 const formName = document.getElementById('name');
 const otherJobRole = document.getElementById('other-job-role');
 const jobs = document.getElementById('title');
@@ -13,12 +15,13 @@ const form = document.querySelector('form');
 const activityInputs = document.querySelectorAll("input[type=checkbox]");
 const nameValid = document.querySelector('input[type=text]');
 const emailValid = document.querySelector('input[type=email]');
+const cost = document.querySelector('input[data-cost]');
+const input = document.querySelectorAll('input')
 const cardValid = document.getElementById('cc-num');
 const zipValid = document.getElementById('zip-hint');
 const cvvValid = document.getElementById('cvv');
 const label = document.querySelectorAll('label');
-const cost = document.querySelector('input[data-cost]');
-const input = document.querySelectorAll('input')
+
 
 // Focuses on name upon refresh
 formName.focus()
@@ -113,7 +116,6 @@ for (i = 0; i < activityInputs.length; i++) {
       event.target.parentNode.className = "blur";
  
 })
-
 }
 
 form.addEventListener('submit',(e) =>{
@@ -149,15 +151,12 @@ else {
 
 // activities Validator
  
-
-
 if(totalCost === 0 ){
    cost.parentElement.classList.add('not-valid');
   }
     else {
       cost.parentElement.classList.add('valid');
-      
-    }
+ }
   
 
 // Card Validator
