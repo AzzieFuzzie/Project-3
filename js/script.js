@@ -43,19 +43,14 @@ else{
 // disables shirt colors based on selection
 colorOption.disabled = true;
 
-
 designShirt.addEventListener('change' , (e) =>{
-
 colorOption.disabled =false;
 
 for (let i = 0; i < colorOption.children.length; i++) {
-  
-  
- console.log(colorPicked)
+  console.log(colorPicked)
   if(colorPicked === 'js puns'){
        colorOption[i].style
-
-  }else{}
+    }else{}
 }
 })
 
@@ -175,7 +170,7 @@ e.target.zipValid;
 const zipTest = zipValid.value;
 const zipFinal =  /\d{5}/.test(zipTest);
 if(zipFinal){
-zipValid.parentNode.classList.add('valid');
+  zipValid.parentNode.classList.add('valid');
 }
 else {
   zipValid.parentNode.classList.add('not-valid');
