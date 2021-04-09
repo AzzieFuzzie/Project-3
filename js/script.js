@@ -45,6 +45,9 @@ designShirt.addEventListener("change", (e) => {
   for (let i = 0; i < colorOption.children.length; i++) {
     colorOption[i].style.display = "none";
     if ((e.target.value = "js puns")) {
+      colorOption[(0, 1, 2)].style.display = "block";
+    } else {
+      colorOption[(4, 5)].style.display = "block";
     }
   }
 });
@@ -164,9 +167,3 @@ form.addEventListener("submit", (e) => {
     cvvValid.parentNode.classList.add("not-valid");
   }
 });
-
-// colorOption[(0, 1, 2)].style.display = "block";
-// } else if ((e.target.value = "heart js")) {
-// }
-// colorOption[(3, 4, 5)].style.display = "block";
-// }
