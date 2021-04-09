@@ -43,7 +43,7 @@ colorOption.disabled = true;
 designShirt.addEventListener("change", (e) => {
   colorOption.disabled = false;
   for (let i = 0; i < colorOption.children.length; i++) {
-    colorOption.style.display = "hidden";
+    colorOption[i].style.display = "none";
   }
 });
 
