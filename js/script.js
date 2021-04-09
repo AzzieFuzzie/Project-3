@@ -42,11 +42,8 @@ colorOption.disabled = true;
 
 designShirt.addEventListener("change", (e) => {
   colorOption.disabled = false;
-
-  if (e.target.value === "js puns") {
-    colorOption.getAttribute("heart js") = "hidden";
-  } else if (e.target.value === "heart js") {
-    colorOption.getAttribute("js puns") = "hidden";
+  for (let i = 0; i < colorOption.children.length; i++) {
+    colorOption.style.display = "hidden";
   }
 });
 
