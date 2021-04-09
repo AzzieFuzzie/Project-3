@@ -44,10 +44,10 @@ designShirt.addEventListener("change", (e) => {
   colorOption.disabled = false;
 
   for (let i = 0; i < colorOption.children.length; i++) {
-    console.log(colorPicked);
-    if (colorPicked === "js puns") {
-      colorOption[i].style;
-    } else {
+    if (e.target.value === "js puns") {
+      colorOption[(3, 4, 5)].style.display = "hidden";
+    } else if (e.target.value === "heart js") {
+      colorOption[(0, 1, 2)].style.display = "hidden";
     }
   }
 });
