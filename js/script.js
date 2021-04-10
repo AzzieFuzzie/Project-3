@@ -39,7 +39,7 @@ jobs.addEventListener("click", (e) => {
 });
 
 // disables shirt colors based on selection
-
+// Attempt 3(walkthrough)
 
 colorOptions.disabled = true;
 
@@ -52,16 +52,17 @@ designShirt.addEventListener('change',(e)=>{
    const target = e.target.value;
    const getAttribute = colorOptions[i].getAttribute("data-theme");
     console.log(getAttribute);
-    if (getAttribute == target) {
+    if (getAttribute === target) {
       colorOptions[i].hidden = false; 
-      colorOptions[i].setAttribute("selected");
+      colorOptions[i].setAttribute("selected,true");
     } else {
       colorOptions[i].hidden = true; 
-      colorOptions[i].removeAttribute("selected");
+      colorOptions[i].removeAttribute("selected,false");
     }
   }
 });
 
+// Attempt2
 
 // designShirt.addEventListener("change", (e) => {
 //   colorOption.disabled = false;
@@ -84,6 +85,7 @@ designShirt.addEventListener('change',(e)=>{
 // });
 
  
+// Attempt1
 
 // designShirt.addEventListener("change", (e) => {
 //   colorOption.disabled = false;
