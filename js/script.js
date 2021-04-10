@@ -98,6 +98,7 @@ designShirt.addEventListener('change',(e)=>{
 //     }
 //   }
 // });
+
 // Activities
 
 let totalCost = 0;
