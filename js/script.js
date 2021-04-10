@@ -42,16 +42,33 @@ colorOption.disabled = true;
 
 designShirt.addEventListener("change", (e) => {
   colorOption.disabled = false;
-  for (let i = 0; i < colorOption.children.length; i++) {
-    colorOption[i].style.display = "none";
-    if ((e.target.value = "js puns")) {
-      colorOption[(0, 1, 2)].style.display = "block";
-    } else {
-      colorOption[(4, 5)].style.display = "block";
+  for (let i = 0; i < colorOption.length; i++) {
+    colorOption[i].hidden = true;
+    if ((e.target.value === "js puns")) {
+     const jsPuns = colorOption[i].getAttribute('data-theme');
+     if (jsPuns === 'js puns'){
+        colorOption[i].hidden = false;
+     }
+    } else if ((e.target.value = "heart.js")) {
+      const heartJs = colorOption[i].getAttribute('data-theme');
+      if (heartJs === 'heart js'){
+        colorOption[i].hidden = false;
+     }
     }
   }
 });
 
+// designShirt.addEventListener("change", (e) => {
+//   colorOption.disabled = false;
+//   for (let i = 0; i < colorOption.children.length; i++) {
+//     colorOption[i].style.display = "none";
+//     if ((e.target.value = "js puns")) {
+//       colorOption[(0, 1, 2)].style.display = "block";
+//     } else {
+//       colorOption[(4, 5)].style.display = "block";
+//     }
+//   }
+// });
 // Activities
 
 let totalCost = 0;
