@@ -4,7 +4,8 @@ const formName = document.getElementById("name");
 const otherJobRole = document.getElementById("other-job-role");
 const jobs = document.getElementById("title");
 const designShirt = document.getElementById("design");
-const colorOption = document.getElementById("color");
+const colorOptions = document.getElementById("color");
+const colorOptions1 = document.getElementById("color").children;
 const activities = document.getElementById("activities");
 const total = document.getElementById("activities-cost");
 const creditCard = document.querySelector(".credit-card");
@@ -38,25 +39,51 @@ jobs.addEventListener("click", (e) => {
 });
 
 // disables shirt colors based on selection
-colorOption.disabled = true;
 
-designShirt.addEventListener("change", (e) => {
-  colorOption.disabled = false;
-  for (let i = 0; i < colorOption.length; i++) {
-    colorOption[i].hidden = true;
-    if ((e.target.value === "js puns")) {
-     const jsPuns = colorOption[i].getAttribute('data-theme');
-     if (jsPuns === 'js puns'){
-        colorOption[i].hidden = false;
-     }
-    } else if ((e.target.value = "heart.js")) {
-      const heartJs = colorOption[i].getAttribute('data-theme');
-      if (heartJs === 'heart js'){
-        colorOption[i].hidden = false;
-     }
+
+colorOptions.disabled = true;
+
+
+designShirt.addEventListener('change',(e)=>{
+
+  colorOptions.disabled =false;
+
+  for (let i = 0; i < colorOptions1.length; i++) {
+   const target = e.target.value;
+   const getAttribute = colorOptions[i].getAttribute("data-theme");
+    console.log(getAttribute);
+    if (getAttribute == target) {
+      colorOptions[i].hidden = false; 
+      colorOptions[i].setAttribute("selected");
+    } else {
+      colorOptions[i].hidden = true; 
+      colorOptions[i].removeAttribute("selected");
     }
   }
 });
+
+
+// designShirt.addEventListener("change", (e) => {
+//   colorOption.disabled = false;
+//   for (let i = 0; i < colorOption.children.length; i++) {
+//     colorOption[i].hidden = true;
+//     if ((e.target.value === "js puns")) {
+//      const jsPuns = colorOption[i].getAttribute('data-theme');
+//      if (jsPuns === 'js puns'){
+//         colorOption[i].hidden = false;
+     
+//      }
+//     } else if ((e.target.value = "heart.js")) {
+//       const heartJs = colorOption[i].getAttribute('data-theme');
+//       if (heartJs === 'heart js'){
+//         colorOption[i].hidden = false;
+  
+//      }
+//     }
+//   }
+// });
+
+ 
 
 // designShirt.addEventListener("change", (e) => {
 //   colorOption.disabled = false;
