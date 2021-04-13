@@ -30,7 +30,7 @@ formName.focus();
 otherJobRole.style.display = "none";
 
 // Hides and unhides other job role when other is clicked
-jobs.addEventListener("click", (e) => {
+jobs.addEventListener("change", (e) => {
   if (e.target.value === "other") {
     otherJobRole.style.display = "block";
   } else {
@@ -182,13 +182,15 @@ form.addEventListener("submit", (e) => {
 
   if (totalCost === 0) {
     cost.parentElement.classList.add("not-valid");
+    e.preventDefault();
   } else {
     cost.parentElement.classList.add("valid");
-    e.preventDefault();
+ 
   }
 
   // Card Validator
   
+if(paymentMethod.value === 'credit-card'){
   const cardTest = cardValid.value;
   const cardFinal = /\d{13,16}/.test(cardTest);
   if (cardFinal) {
@@ -219,5 +221,6 @@ form.addEventListener("submit", (e) => {
     cvvValid.parentNode.classList.add("not-valid");
     e.preventDefault();
   }
+}
 });
 
