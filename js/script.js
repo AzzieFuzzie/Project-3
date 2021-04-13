@@ -19,7 +19,7 @@ const emailValid = document.querySelector("input[type=email]");
 const cost = document.querySelector("input[data-cost]");
 const input = document.querySelectorAll("input");
 const cardValid = document.getElementById("cc-num");
-const zipValid = document.getElementById("zip-hint");
+const zipValid = document.getElementById("zip");
 const cvvValid = document.getElementById("cvv");
 const label = document.querySelectorAll("label");
 
@@ -48,16 +48,16 @@ designShirt.addEventListener('change',(e)=>{
 
   colorOptions.disabled =false;
 
-  for (let i = 0; i < colorOptions1.length; i++) {
+  for (let i = 0; i < colorOptions.children.length; i++) {
    const target = e.target.value;
    const getAttribute = colorOptions[i].getAttribute("data-theme");
     console.log(getAttribute);
     if (getAttribute === target) {
       colorOptions[i].hidden = false; 
-      colorOptions[i].setAttribute("selected,true");
+      colorOptions[i].setAttribute("selected","true");
     } else {
       colorOptions[i].hidden = true; 
-      colorOptions[i].removeAttribute("selected,false");
+      colorOptions[i].removeAttribute("selected");
     }
   }
 });
@@ -153,27 +153,29 @@ for (i = 0; i < activityInputs.length; i++) {
 
 form.addEventListener("submit", (e) => {
   // Prevents default page refreshing
-  e.preventDefault();
+ 
 
   // Name Validator
-  e.target.nameValid;
+
   const nameTest = nameValid.value;
   const nameFinal = /[a-z]/i.test(nameTest);
   if (nameFinal) {
     nameValid.parentNode.classList.add("valid");
   } else {
     nameValid.parentNode.classList.add("not-valid");
+    e.preventDefault();
   }
 
   // Email Validator
 
-  e.target.emailValid;
+  
   const emailTest = emailValid.value;
   const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
   if (emailFinal) {
     emailValid.parentNode.classList.add("valid");
   } else {
     emailValid.parentNode.classList.add("not-valid");
+    e.preventDefault();
   }
 
   // activities Validator
@@ -182,35 +184,40 @@ form.addEventListener("submit", (e) => {
     cost.parentElement.classList.add("not-valid");
   } else {
     cost.parentElement.classList.add("valid");
+    e.preventDefault();
   }
 
   // Card Validator
-  e.target.cardValid;
+  
   const cardTest = cardValid.value;
   const cardFinal = /\d{13,16}/.test(cardTest);
   if (cardFinal) {
     cardValid.parentNode.classList.add("valid");
   } else {
     cardValid.parentNode.classList.add("not-valid");
+    e.preventDefault();
   }
 
   //Zip Validator
-  e.target.zipValid;
+ 
   const zipTest = zipValid.value;
   const zipFinal = /\d{5}/.test(zipTest);
   if (zipFinal) {
     zipValid.parentNode.classList.add("valid");
   } else {
     zipValid.parentNode.classList.add("not-valid");
+    e.preventDefault();
   }
 
   // CVV Validator
-  e.target.cvvValid;
+ 
   const cvvTest = cvvValid.value;
   const cvvFinal = /\d{3}/.test(cvvTest);
   if (cvvFinal) {
     cvvValid.parentNode.classList.add("valid");
   } else {
     cvvValid.parentNode.classList.add("not-valid");
+    e.preventDefault();
   }
 });
+
