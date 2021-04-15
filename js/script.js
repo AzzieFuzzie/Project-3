@@ -223,10 +223,7 @@ if(paymentMethod.value === 'credit-card'){
     zipValid.parentElement.lastElementChild.style.display = "none"
   } else {
     zipValid.parentNode.classList.add("not-valid");
-    cvvValid.parentElement.lastElementChild.style.display = "block"
-  //  for (let i = 0; i < hint.length; i++) {
-  //    hint[i].parentElement.lastElementChild.style.display = "block"
-  //  }
+    zipValid.parentElement.lastElementChild.style.display = "block"
    e.preventDefault();
   }
 
