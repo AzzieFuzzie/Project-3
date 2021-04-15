@@ -22,6 +22,8 @@ const cardValid = document.getElementById("cc-num");
 const zipValid = document.getElementById("zip");
 const cvvValid = document.getElementById("cvv");
 const label = document.querySelectorAll("label");
+const hint = document.querySelectorAll("hint")
+const activitiesHint = document.getElementById("activities-hint")
 
 // Focuses on name upon refresh
 formName.focus();
@@ -161,8 +163,11 @@ form.addEventListener("submit", (e) => {
   const nameFinal = /[a-z]/i.test(nameTest);
   if (nameFinal) {
     nameValid.parentNode.classList.add("valid");
+    nameValid.parentNode.classList.remove("not-valid");
+    nameValid.parentElement.lastElementChild.style.display = "none"
   } else {
     nameValid.parentNode.classList.add("not-valid");
+   nameValid.parentElement.lastElementChild.style.display = "block"
     e.preventDefault();
   }
 
@@ -173,8 +178,11 @@ form.addEventListener("submit", (e) => {
   const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
   if (emailFinal) {
     emailValid.parentNode.classList.add("valid");
+    emailValid.parentNode.classList.remove("not-valid");
+    emailValid.parentElement.lastElementChild.style.display = "none"
   } else {
     emailValid.parentNode.classList.add("not-valid");
+    emailValid.parentElement.lastElementChild.style.display = "block"
     e.preventDefault();
   }
 
@@ -182,10 +190,12 @@ form.addEventListener("submit", (e) => {
 
   if (totalCost === 0) {
     cost.parentElement.classList.add("not-valid");
+    activitiesHint.style.display = "block"
     e.preventDefault();
   } else {
     cost.parentElement.classList.add("valid");
- 
+    cost.parentNode.classList.remove("not-valid");
+    activitiesHint.style.display = "none"
   }
 
   // Card Validator
@@ -195,8 +205,11 @@ if(paymentMethod.value === 'credit-card'){
   const cardFinal = /\d{13,16}/.test(cardTest);
   if (cardFinal) {
     cardValid.parentNode.classList.add("valid");
+    cardValid.parentNode.classList.remove("not-valid");
+    cardValid.parentElement.lastElementChild.style.display = "none"
   } else {
     cardValid.parentNode.classList.add("not-valid");
+    cardValid.parentElement.lastElementChild.style.display = "block"
     e.preventDefault();
   }
 
@@ -206,9 +219,15 @@ if(paymentMethod.value === 'credit-card'){
   const zipFinal = /\d{5}/.test(zipTest);
   if (zipFinal) {
     zipValid.parentNode.classList.add("valid");
+    zipValid.parentNode.classList.remove("not-valid");
+    zipValid.parentElement.lastElementChild.style.display = "none"
   } else {
     zipValid.parentNode.classList.add("not-valid");
-    e.preventDefault();
+    cvvValid.parentElement.lastElementChild.style.display = "block"
+  //  for (let i = 0; i < hint.length; i++) {
+  //    hint[i].parentElement.lastElementChild.style.display = "block"
+  //  }
+   e.preventDefault();
   }
 
   // CVV Validator
@@ -217,8 +236,11 @@ if(paymentMethod.value === 'credit-card'){
   const cvvFinal = /\d{3}/.test(cvvTest);
   if (cvvFinal) {
     cvvValid.parentNode.classList.add("valid");
+    cvvValid.parentNode.classList.remove("not-valid");
+    cvvValid.parentElement.lastElementChild.style.display = "none"
   } else {
     cvvValid.parentNode.classList.add("not-valid");
+    cvvValid.parentElement.lastElementChild.style.display = "block"
     e.preventDefault();
   }
 }

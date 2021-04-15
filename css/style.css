@@ -218,6 +218,7 @@ button:hover {
   transition: all 0.3s ease-out;
 }
 
+
 .form-hint {
   color: rgb(0, 0, 0);
   margin-bottom: 0;
@@ -419,6 +420,7 @@ button:hover {
 .activities-hint {
   margin-top: 10px;
 }
+
 
 /* ================================= 
   Payment section styles
