@@ -22,8 +22,8 @@ const cardValid = document.getElementById("cc-num");
 const zipValid = document.getElementById("zip");
 const cvvValid = document.getElementById("cvv");
 const label = document.querySelectorAll("label");
-const hint = document.querySelectorAll("hint")
-const activitiesHint = document.getElementById("activities-hint")
+const hint = document.querySelectorAll("hint");
+const activitiesHint = document.getElementById("activities-hint");
 
 // Focuses on name upon refresh
 formName.focus();
@@ -45,20 +45,18 @@ jobs.addEventListener("change", (e) => {
 
 colorOptions.disabled = true;
 
-
-designShirt.addEventListener('change',(e)=>{
-
-  colorOptions.disabled =false;
+designShirt.addEventListener("change", (e) => {
+  colorOptions.disabled = false;
 
   for (let i = 0; i < colorOptions.children.length; i++) {
-   const target = e.target.value;
-   const getAttribute = colorOptions[i].getAttribute("data-theme");
+    const target = e.target.value;
+    const getAttribute = colorOptions[i].getAttribute("data-theme");
     console.log(getAttribute);
     if (getAttribute === target) {
-      colorOptions[i].hidden = false; 
-      colorOptions[i].setAttribute("selected","true");
+      colorOptions[i].hidden = false;
+      colorOptions[i].setAttribute("selected", "true");
     } else {
-      colorOptions[i].hidden = true; 
+      colorOptions[i].hidden = true;
       colorOptions[i].removeAttribute("selected");
     }
   }
@@ -74,19 +72,18 @@ designShirt.addEventListener('change',(e)=>{
 //      const jsPuns = colorOption[i].getAttribute('data-theme');
 //      if (jsPuns === 'js puns'){
 //         colorOption[i].hidden = false;
-     
+
 //      }
 //     } else if ((e.target.value = "heart.js")) {
 //       const heartJs = colorOption[i].getAttribute('data-theme');
 //       if (heartJs === 'heart js'){
 //         colorOption[i].hidden = false;
-  
+
 //      }
 //     }
 //   }
 // });
 
- 
 // Attempt1
 
 // designShirt.addEventListener("change", (e) => {
@@ -155,7 +152,6 @@ for (i = 0; i < activityInputs.length; i++) {
 
 form.addEventListener("submit", (e) => {
   // Prevents default page refreshing
- 
 
   // Name Validator
 
@@ -164,25 +160,24 @@ form.addEventListener("submit", (e) => {
   if (nameFinal) {
     nameValid.parentNode.classList.add("valid");
     nameValid.parentNode.classList.remove("not-valid");
-    nameValid.parentElement.lastElementChild.style.display = "none"
+    nameValid.parentElement.lastElementChild.style.display = "none";
   } else {
     nameValid.parentNode.classList.add("not-valid");
-   nameValid.parentElement.lastElementChild.style.display = "block"
+    nameValid.parentElement.lastElementChild.style.display = "block";
     e.preventDefault();
   }
 
   // Email Validator
 
-  
   const emailTest = emailValid.value;
   const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
   if (emailFinal) {
     emailValid.parentNode.classList.add("valid");
     emailValid.parentNode.classList.remove("not-valid");
-    emailValid.parentElement.lastElementChild.style.display = "none"
+    emailValid.parentElement.lastElementChild.style.display = "none";
   } else {
     emailValid.parentNode.classList.add("not-valid");
-    emailValid.parentElement.lastElementChild.style.display = "block"
+    emailValid.parentElement.lastElementChild.style.display = "block";
     e.preventDefault();
   }
 
@@ -190,56 +185,55 @@ form.addEventListener("submit", (e) => {
 
   if (totalCost === 0) {
     cost.parentElement.classList.add("not-valid");
-    activitiesHint.style.display = "block"
+    activitiesHint.style.display = "block";
     e.preventDefault();
   } else {
     cost.parentElement.classList.add("valid");
     cost.parentNode.classList.remove("not-valid");
-    activitiesHint.style.display = "none"
+    activitiesHint.style.display = "none";
   }
 
   // Card Validator
-  
-if(paymentMethod.value === 'credit-card'){
-  const cardTest = cardValid.value;
-  const cardFinal = /\d{13,16}/.test(cardTest);
-  if (cardFinal) {
-    cardValid.parentNode.classList.add("valid");
-    cardValid.parentNode.classList.remove("not-valid");
-    cardValid.parentElement.lastElementChild.style.display = "none"
-  } else {
-    cardValid.parentNode.classList.add("not-valid");
-    cardValid.parentElement.lastElementChild.style.display = "block"
-    e.preventDefault();
-  }
 
-  //Zip Validator
- 
-  const zipTest = zipValid.value;
-  const zipFinal = /\d{5}/.test(zipTest);
-  if (zipFinal) {
-    zipValid.parentNode.classList.add("valid");
-    zipValid.parentNode.classList.remove("not-valid");
-    zipValid.parentElement.lastElementChild.style.display = "none"
-  } else {
-    zipValid.parentNode.classList.add("not-valid");
-    zipValid.parentElement.lastElementChild.style.display = "block"
-   e.preventDefault();
-  }
+  if (paymentMethod.value === "credit-card") {
+    const cardTest = cardValid.value;
+    const cardFinal = /\d{13,16}/.test(cardTest);
+    if (cardFinal) {
+      cardValid.parentNode.classList.add("valid");
+      cardValid.parentNode.classList.remove("not-valid");
+      cardValid.parentElement.lastElementChild.style.display = "none";
+    } else {
+      cardValid.parentNode.classList.add("not-valid");
+      cardValid.parentElement.lastElementChild.style.display = "block";
+      e.preventDefault();
+    }
 
-  // CVV Validator
- 
-  const cvvTest = cvvValid.value;
-  const cvvFinal = /\d{3}/.test(cvvTest);
-  if (cvvFinal) {
-    cvvValid.parentNode.classList.add("valid");
-    cvvValid.parentNode.classList.remove("not-valid");
-    cvvValid.parentElement.lastElementChild.style.display = "none"
-  } else {
-    cvvValid.parentNode.classList.add("not-valid");
-    cvvValid.parentElement.lastElementChild.style.display = "block"
-    e.preventDefault();
+    //Zip Validator
+
+    const zipTest = zipValid.value;
+    const zipFinal = /\d{5}/.test(zipTest);
+    if (zipFinal) {
+      zipValid.parentNode.classList.add("valid");
+      zipValid.parentNode.classList.remove("not-valid");
+      zipValid.parentElement.lastElementChild.style.display = "none";
+    } else {
+      zipValid.parentNode.classList.add("not-valid");
+      zipValid.parentElement.lastElementChild.style.display = "block";
+      e.preventDefault();
+    }
+
+    // CVV Validator
+
+    const cvvTest = cvvValid.value;
+    const cvvFinal = /\d{3}/.test(cvvTest);
+    if (cvvFinal) {
+      cvvValid.parentNode.classList.add("valid");
+      cvvValid.parentNode.classList.remove("not-valid");
+      cvvValid.parentElement.lastElementChild.style.display = "none";
+    } else {
+      cvvValid.parentNode.classList.add("not-valid");
+      cvvValid.parentElement.lastElementChild.style.display = "block";
+      e.preventDefault();
+    }
   }
-}
 });
-
