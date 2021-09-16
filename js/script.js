@@ -1,42 +1,42 @@
 // All Selected Dom elements referenced in variables in chronological order
 
-const formName = document.getElementById("name");
-const otherJobRole = document.getElementById("other-job-role");
-const jobs = document.getElementById("title");
-const designShirt = document.getElementById("design");
-const colorOptions = document.getElementById("color");
-const colorOptions1 = document.getElementById("color").children;
-const activities = document.getElementById("activities");
-const total = document.getElementById("activities-cost");
-const creditCard = document.querySelector(".credit-card");
-const payPal = document.querySelector(".paypal");
-const bitCoin = document.querySelector(".bitcoin");
-const paymentMethod = document.getElementById("payment");
-const form = document.querySelector("form");
-const activityInputs = document.querySelectorAll("input[type=checkbox]");
-const nameValid = document.querySelector("input[type=text]");
-const emailValid = document.querySelector("input[type=email]");
-const cost = document.querySelector("input[data-cost]");
-const input = document.querySelectorAll("input");
-const cardValid = document.getElementById("cc-num");
-const zipValid = document.getElementById("zip");
-const cvvValid = document.getElementById("cvv");
-const label = document.querySelectorAll("label");
-const hint = document.querySelectorAll("hint");
-const activitiesHint = document.getElementById("activities-hint");
+const formName = document.getElementById('name');
+const otherJobRole = document.getElementById('other-job-role');
+const jobs = document.getElementById('title');
+const designShirt = document.getElementById('design');
+const colorOptions = document.getElementById('color');
+const colorOptions1 = document.getElementById('color').children;
+const activities = document.getElementById('activities');
+const total = document.getElementById('activities-cost');
+const creditCard = document.querySelector('.credit-card');
+const payPal = document.querySelector('.paypal');
+const bitCoin = document.querySelector('.bitcoin');
+const paymentMethod = document.getElementById('payment');
+const form = document.querySelector('form');
+const activityInputs = document.querySelectorAll('input[type=checkbox]');
+const nameValid = document.querySelector('input[type=text]');
+const emailValid = document.querySelector('input[type=email]');
+const cost = document.querySelector('input[data-cost]');
+const input = document.querySelectorAll('input');
+const cardValid = document.getElementById('cc-num');
+const zipValid = document.getElementById('zip');
+const cvvValid = document.getElementById('cvv');
+const label = document.querySelectorAll('label');
+const hint = document.querySelectorAll('hint');
+const activitiesHint = document.getElementById('activities-hint');
 
 // Focuses on name upon refresh
 formName.focus();
 
 // Hides other job role upon refresh
-otherJobRole.style.display = "none";
+otherJobRole.style.display = 'none';
 
 // Hides and unhides other job role when other is clicked
-jobs.addEventListener("change", (e) => {
-  if (e.target.value === "other") {
-    otherJobRole.style.display = "block";
+jobs.addEventListener('change', (e) => {
+  if (e.target.value === 'other') {
+    otherJobRole.style.display = 'block';
   } else {
-    otherJobRole.style.display = "none";
+    otherJobRole.style.display = 'none';
   }
 });
 
@@ -45,19 +45,19 @@ jobs.addEventListener("change", (e) => {
 
 colorOptions.disabled = true;
 
-designShirt.addEventListener("change", (e) => {
+designShirt.addEventListener('change', (e) => {
   colorOptions.disabled = false;
 
   for (let i = 0; i < colorOptions.children.length; i++) {
     const target = e.target.value;
-    const getAttribute = colorOptions[i].getAttribute("data-theme");
+    const getAttribute = colorOptions[i].getAttribute('data-theme');
     console.log(getAttribute);
     if (getAttribute === target) {
       colorOptions[i].hidden = false;
-      colorOptions[i].setAttribute("selected", "true");
+      colorOptions[i].setAttribute('selected', 'true');
     } else {
       colorOptions[i].hidden = true;
-      colorOptions[i].removeAttribute("selected");
+      colorOptions[i].removeAttribute('selected');
     }
   }
 });
@@ -102,8 +102,8 @@ designShirt.addEventListener("change", (e) => {
 
 let totalCost = 0;
 
-activities.addEventListener("change", (e) => {
-  const activitySelected = e.target.getAttribute("data-cost");
+activities.addEventListener('change', (e) => {
+  const activitySelected = e.target.getAttribute('data-cost');
   const activityNo = +activitySelected;
 
   if (e.target.checked) {
@@ -122,17 +122,17 @@ payPal.hidden = true;
 
 // Hides one payment method when one is selected
 
-paymentMethod.addEventListener("change", (e) => {
+paymentMethod.addEventListener('change', (e) => {
   const selectedPay = e.target.value;
-  if (selectedPay === "bitcoin") {
+  if (selectedPay === 'bitcoin') {
     bitCoin.hidden = false;
     payPal.hidden = true;
     creditCard.hidden = true;
-  } else if (selectedPay === "paypal") {
+  } else if (selectedPay === 'paypal') {
     payPal.hidden = false;
     bitCoin.hidden = true;
     creditCard.hidden = true;
-  } else if (selectedPay === "credit-card") {
+  } else if (selectedPay === 'credit-card') {
     creditCard.hidden = false;
     bitCoin.hidden = true;
     payPal.hidden = true;
@@ -142,15 +142,17 @@ paymentMethod.addEventListener("change", (e) => {
 // Accessability
 
 for (i = 0; i < activityInputs.length; i++) {
-  activityInputs[i].addEventListener("focus", (event) => {
-    event.target.parentNode.className = "focus";
+  activityInputs[i].addEventListener('focus', (event) => {
+    event.target.parentNode.className = 'focus';
   });
-  activityInputs[i].addEventListener("blur", (event) => {
-    event.target.parentNode.className = "blur";
+  activityInputs[i].addEventListener('blur', (event) => {
+    event.target.parentNode.className = 'blur';
   });
 }
 
-form.addEventListener("submit", (e) => {
+// Form Event
+
+form.addEventListener('submit', (e) => {
   // Prevents default page refreshing
 
   // Name Validator
@@ -158,12 +160,12 @@ form.addEventListener("submit", (e) => {
   const nameTest = nameValid.value;
   const nameFinal = /[a-z]/i.test(nameTest);
   if (nameFinal) {
-    nameValid.parentNode.classList.add("valid");
-    nameValid.parentNode.classList.remove("not-valid");
-    nameValid.parentElement.lastElementChild.style.display = "none";
+    nameValid.parentNode.classList.add('valid');
+    nameValid.parentNode.classList.remove('not-valid');
+    nameValid.parentElement.lastElementChild.style.display = 'none';
   } else {
-    nameValid.parentNode.classList.add("not-valid");
-    nameValid.parentElement.lastElementChild.style.display = "block";
+    nameValid.parentNode.classList.add('not-valid');
+    nameValid.parentElement.lastElementChild.style.display = 'block';
     e.preventDefault();
   }
 
@@ -172,39 +174,39 @@ form.addEventListener("submit", (e) => {
   const emailTest = emailValid.value;
   const emailFinal = /^[^@]+@[^@.]+\.[a-z]+$/.test(emailTest);
   if (emailFinal) {
-    emailValid.parentNode.classList.add("valid");
-    emailValid.parentNode.classList.remove("not-valid");
-    emailValid.parentElement.lastElementChild.style.display = "none";
+    emailValid.parentNode.classList.add('valid');
+    emailValid.parentNode.classList.remove('not-valid');
+    emailValid.parentElement.lastElementChild.style.display = 'none';
   } else {
-    emailValid.parentNode.classList.add("not-valid");
-    emailValid.parentElement.lastElementChild.style.display = "block";
+    emailValid.parentNode.classList.add('not-valid');
+    emailValid.parentElement.lastElementChild.style.display = 'block';
     e.preventDefault();
   }
 
   // activities Validator
 
   if (totalCost === 0) {
-    cost.parentElement.classList.add("not-valid");
-    activitiesHint.style.display = "block";
+    cost.parentElement.classList.add('not-valid');
+    activitiesHint.style.display = 'block';
     e.preventDefault();
   } else {
-    cost.parentElement.classList.add("valid");
-    cost.parentNode.classList.remove("not-valid");
-    activitiesHint.style.display = "none";
+    cost.parentElement.classList.add('valid');
+    cost.parentNode.classList.remove('not-valid');
+    activitiesHint.style.display = 'none';
   }
 
   // Card Validator
 
-  if (paymentMethod.value === "credit-card") {
+  if (paymentMethod.value === 'credit-card') {
     const cardTest = cardValid.value;
     const cardFinal = /\d{13,16}/.test(cardTest);
     if (cardFinal) {
-      cardValid.parentNode.classList.add("valid");
-      cardValid.parentNode.classList.remove("not-valid");
-      cardValid.parentElement.lastElementChild.style.display = "none";
+      cardValid.parentNode.classList.add('valid');
+      cardValid.parentNode.classList.remove('not-valid');
+      cardValid.parentElement.lastElementChild.style.display = 'none';
     } else {
-      cardValid.parentNode.classList.add("not-valid");
-      cardValid.parentElement.lastElementChild.style.display = "block";
+      cardValid.parentNode.classList.add('not-valid');
+      cardValid.parentElement.lastElementChild.style.display = 'block';
       e.preventDefault();
     }
 
@@ -213,12 +215,12 @@ form.addEventListener("submit", (e) => {
     const zipTest = zipValid.value;
     const zipFinal = /\d{5}/.test(zipTest);
     if (zipFinal) {
-      zipValid.parentNode.classList.add("valid");
-      zipValid.parentNode.classList.remove("not-valid");
-      zipValid.parentElement.lastElementChild.style.display = "none";
+      zipValid.parentNode.classList.add('valid');
+      zipValid.parentNode.classList.remove('not-valid');
+      zipValid.parentElement.lastElementChild.style.display = 'none';
     } else {
-      zipValid.parentNode.classList.add("not-valid");
-      zipValid.parentElement.lastElementChild.style.display = "block";
+      zipValid.parentNode.classList.add('not-valid');
+      zipValid.parentElement.lastElementChild.style.display = 'block';
       e.preventDefault();
     }
 
@@ -227,12 +229,12 @@ form.addEventListener("submit", (e) => {
     const cvvTest = cvvValid.value;
     const cvvFinal = /\d{3}/.test(cvvTest);
     if (cvvFinal) {
-      cvvValid.parentNode.classList.add("valid");
-      cvvValid.parentNode.classList.remove("not-valid");
-      cvvValid.parentElement.lastElementChild.style.display = "none";
+      cvvValid.parentNode.classList.add('valid');
+      cvvValid.parentNode.classList.remove('not-valid');
+      cvvValid.parentElement.lastElementChild.style.display = 'none';
     } else {
-      cvvValid.parentNode.classList.add("not-valid");
-      cvvValid.parentElement.lastElementChild.style.display = "block";
+      cvvValid.parentNode.classList.add('not-valid');
+      cvvValid.parentElement.lastElementChild.style.display = 'block';
       e.preventDefault();
     }
   }
